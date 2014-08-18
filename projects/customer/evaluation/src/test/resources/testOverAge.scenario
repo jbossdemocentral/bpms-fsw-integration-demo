@@ -1,0 +1,12 @@
+<scenario>
+  <name>testOverAge</name>
+  <maxRuleFirings>100000</maxRuleFirings>
+  <globals/>
+  <fixtures/>
+  <rules/>
+  <inclusive>false</inclusive>
+  <packageName></packageName>
+  <imports>
+    <imports/>
+  </imports>
+</scenario>

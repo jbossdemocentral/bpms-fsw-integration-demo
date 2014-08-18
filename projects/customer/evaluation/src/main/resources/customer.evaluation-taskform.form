@@ -1,0 +1,26 @@
+
+<form id="810264064">
+<property name="subject" value=""/>
+<property name="name" value="customer.evaluation-taskform.form"/>
+<property name="displayMode" value="default"/>
+<property name="status" value="0"/>
+<field position="0" name=":decorator_0" type="HTMLLabel" id="626621686">
+<property name="fieldRequired" value="false"/>
+<property name="label" value=""/>
+<property name="inputBinding" value=""/>
+<property name="outputBinding" value=""/>
+<property name="htmlContent" value="quot;caquot;,quot;&lt;h3&gt;Just submit to start process.&lt;/h3&gt;
+quot;quot;dequot;,quot;&lt;h3&gt;Just submit to start process.&lt;/h3&gt;
+quot;quot;enquot;,quot;&lt;h3&gt;Just submit to start process.&lt;/h3&gt;
+quot;quot;esquot;,quot;&lt;h3&gt;Just submit to start process.&lt;/h3&gt;
+quot;quot;frquot;,quot;&lt;h3&gt;Just submit to start process.&lt;/h3&gt;
+quot;quot;jaquot;,quot;&lt;h3&gt;Just submit to start process.&lt;/h3&gt;
+quot;quot;ptquot;,quot;&lt;h3&gt;Just submit to start process.&lt;/h3&gt;
+quot;quot;zhquot;,quot;&lt;h3&gt;Just submit to start process.&lt;/h3&gt;
+quot;"/>
+<property name="fieldClass" value="HTMLlabel"/>
+</field>
+<dataHolder inputId="" name="#FF54A7" type="dataModelerEntry" outId="person" value="customer.evaluation.Person" id="person"/>
+<dataHolder inputId="" name="#A7E690" type="dataModelerEntry" outId="request" value="customer.evaluation.Request" id="request"/>
+<dataHolder inputId="" name="#0000A0" type="basicType" outId="validRequest" value="java.lang.Boolean" id="validRequest"/>
+</form>
