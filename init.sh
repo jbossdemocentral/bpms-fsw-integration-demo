@@ -82,7 +82,7 @@ git checkout $SUPPORT_DIR/installation-fsw
 echo "  - modify FSW installer script with full path."
 echo
 sed -i "" "s:target:$(pwd)/target:" $SUPPORT_DIR/installation-fsw
-exit
+
 # Run FSW installer.
 java -jar $SRC_DIR/$FSW $SUPPORT_DIR/installation-fsw.modified -variablefile $SUPPORT_DIR/installation-fsw.variables
 mv target/jboss-eap-6.1 target/jboss-eap-6.1.fsw
