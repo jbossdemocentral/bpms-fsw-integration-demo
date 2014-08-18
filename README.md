@@ -18,7 +18,7 @@ Follow the instructions on the screen to start JBoss BPM Suite server and JBoss 
    ```
    Login to http://localhost:8180/business-central  (u:erics / p:bpmsuite1!).
 
-   Login to http://localhost:8080/s-ramp-ui         (u:erics / p:bpmsuite1!)
+   Login to http://localhost:8080/s-ramp-ui         (u:erics / p:jbossfsw1!)
 
    As a developer you have a modified project pom.xml (found in projects/customer)
    which includes an s-ramp wagon and s-ramp repsitory locations for transporting any
@@ -31,7 +31,7 @@ Follow the instructions on the screen to start JBoss BPM Suite server and JBoss 
    started. Claim the approval task in dashboard available in your browser and see the
    rewards artifact deployed in /tmp/dev copied to /tmp/qa upon approval:
 
-        http://localhost:8080/s-ramp-ui            u:erics/p:bpmsuite1!       
+        http://localhost:8080/s-ramp-ui            u:erics/p:jbossfsw1!       
 
    The example of promoting through dev to qa to stage to prod is an example of using
    a local filesystem for this demo.
