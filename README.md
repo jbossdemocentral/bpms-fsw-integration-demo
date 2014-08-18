@@ -67,6 +67,5 @@ See the tagged releases for the following versions of the product:
 
 ![Process](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/dtgov-process.png?raw=true)
 ![Artifacts](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/sramp-artifacts.png?raw=true)
-![Deploy S-RAMP Process](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/sramp-process-upload.png?raw=true)
 ![Email S-RAMP Service](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/sramp-email-notify.png?raw=true)
 
