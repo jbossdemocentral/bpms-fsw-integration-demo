@@ -46,15 +46,15 @@ echo
 command -v mvn -q >/dev/null 2>&1 || { echo >&2 "Maven is required but not installed yet... aborting."; exit 1; }
 
 # make some checks first before proceeding.	
-#if [ -r $SRC_DIR/$BPMS ] || [ -L $SRC_DIR/$BPMS ]; then
-#	echo JBoss product sources, $BPMS present...
-#		echo
-#else
-#		echo Need to download $BPMS package from the Customer Portal 
-#		echo and place it in the $SRC_DIR directory to proceed...
-#		echo
-#		exit
-#fi
+if [ -r $SRC_DIR/$BPMS ] || [ -L $SRC_DIR/$BPMS ]; then
+	echo JBoss product sources, $BPMS present...
+		echo
+else
+		echo Need to download $BPMS package from the Customer Portal 
+		echo and place it in the $SRC_DIR directory to proceed...
+		echo
+		exit
+fi
 
 # make some checks first before proceeding.	
 if [ -r $SRC_DIR/$FSW ] || [ -L $SRC_DIR/$FSW ]; then
@@ -74,11 +74,17 @@ if [ -x $JBOSS_HOME ]; then
 		rm -rf ./target
 fi
 
+# setup FSW installer script with full path (not needed for BPM instaler).
+if [ -r $SUPPORT_DIR/installation-fsw-modifed ]; then
+	echo "  - removing modified fsw installation script."
+	rm $SUPPORT_DIR/installation-fsw-modifed
+fi
+
+echo "  - modify FSW installer script with full path."
+sed -i $SUPPORT_DIR/installation-fsw-modified "s:target:$(pwd)/target:" $SUPPORT_DIR/installation-fsw
 
 # Run FSW installer.
-java -jar $SRC_DIR/$FSW $SUPPORT_DIR/installation-fsw -variablefile $SUPPORT_DIR/installation-fsw.variables
-exit
-
+java -jar $SRC_DIR/$FSW $SUPPORT_DIR/installation-fsw-modified -variablefile $SUPPORT_DIR/installation-fsw.variables
 mv target/jboss-eap-6.1 target/jboss-eap-6.1.fsw
 
 echo "  - copy in property for monitoring dtgov queries..."
