@@ -85,11 +85,11 @@ sed -i "" "s:target:$(pwd)/target:" $SUPPORT_DIR/installation-fsw
 
 # Run FSW installer.
 java -jar $SRC_DIR/$FSW $SUPPORT_DIR/installation-fsw -variablefile $SUPPORT_DIR/installation-fsw.variables
-mv target/jboss-eap-6.1 target/jboss-eap-6.1.fsw
+mv $JBOSS_HOME $JBOSS_HOME_FSW
 
 echo "  - copy in property for monitoring dtgov queries..."
 echo 
-cp $SUPPORT_DIR/dtgov.properties $JBOSS_HOME_DTGOV/standalone/configuration
+cp $SUPPORT_DIR/dtgov.properties $JBOSS_HOME_FSW/standalone/configuration
 
 # Run BPM Suite installer.
 echo Product installer running now...
@@ -124,34 +124,41 @@ cp $PRJ_DTGOVWF/target/$DTGOVWF $SUPPORT_DIR
 echo
 echo "==========================================================================================="
 echo "=                                                                                         =" 
-echo "=  Start the BPM Suite:                                                                   ="
+echo "=  Start JBoss BPM Suite server:                                                          ="
 echo "=                                                                                         =" 
-echo "=        $ $SERVER_BIN/standalone.sh -Djboss.socket.binding.port-offset=100    ="
+echo "=    $ $SERVER_BIN/standalone.sh -Djboss.socket.binding.port-offset=100    ="
 echo "=                                                                                         =" 
-echo "=  In seperate terminal start the S-RAMP server:                                          ="
+echo "=  In seperate terminal start JBoss FSW server:                                           ="
 echo "=                                                                                         =" 
-echo "=        $ $SERVER_BIN_DTGOV/standalone.sh                                     ="
+echo "=    $ $SERVER_BIN_FSW/standalone.sh                                       ="
+echo "=                                                                                         =" 
+echo "=                                                                                         =" 
+echo "=  *************** BPM GOVERNANCE DEMO ***************                                    ="
 echo "=                                                                                         =" 
 echo "=  After starting server you need to upload the DTGOV workflows with following command:   ="
 echo "=                                                                                         =" 
-echo "=        $ $SERVER_BIN_DTGOV/s-ramp.sh -f support/sramp-dtgovwf-upload.txt     ="
+echo "=    $ $SERVER_BIN_FSW/s-ramp.sh -f support/sramp-dtgovwf-upload.txt       ="
 echo "=                                                                                         =" 
 echo "=  Now open Business Central to build & deploy BPM process in your browser at:            ="
 echo "=                                                                                         =" 
-echo "=        http://localhost:8180/business-central     (u:erics/p:bpmsuite1!)                ="
+echo "=    http://localhost:8180/business-central     (u:erics/p:bpmsuite1!)                    ="
 echo "=                                                                                         =" 
 echo "=  As a developer you have a modified project pom.xml (found in projects/customer)        ="
 echo "=  which includes an s-ramp wagon and s-ramp repsitory locations for transporting any     ="
 echo "=  artifacts we build with 'mvn deploy'.                                                  ="
 echo "=                                                                                         =" 
-echo "=        $ mvn deploy -f projects/customer/pom.xml                                        ="
+echo "=    $ mvn deploy -f projects/customer/pom.xml                                            ="
 echo "=                                                                                         =" 
 echo "=  The rewards project now has been deployed in s-ramp repository where you can view      =" 
 echo "=  the artifacts and see that the governance process in the s-ramp was automatically      ="
 echo "=  started. Claim the approval task in dashboard available in your browser and see the    ="
 echo "=  rewards artifact deployed in /tmp/dev copied to /tmp/qa upon approval:                 ="
 echo "=                                                                                         =" 
-echo "=        http://localhost:8080/s-ramp-ui            u:erics/p:bpmsuite1!                  ="
+echo "=    http://localhost:8080/s-ramp-ui            u:erics/p:bpmsuite1!                      ="
+echo "=                                                                                         =" 
+echo "=  ***********************************************                                        ="
+echo "=                                                                                         =" 
+echo "=  *************** FSW SERVICE WITH EXTERNAL BPM PROCESS DEMO ***************             ="
 echo "=                                                                                         =" 
 echo "=  Deploying the camel route in JBoss Fuse Serivce Works as follows:                      ="
 echo "=                                                                                         ="
@@ -159,9 +166,9 @@ echo "=    - add fabric server passwords for Maven Plugin to your ~/.m2/settings
 echo "=      file the fabric server's user and password so that the maven plugin can            ="
 echo "=      login to the fabric. fabric8.upload.repoadminadmin                                 ="
 echo "=                                                                                         ="
-echo "=    - start the JBoss Fuse with:                                                         ="
+echo "=    - start the JBoss FSW with:                                                          ="
 echo "=                                                                                         ="
-echo "=        $FUSE_BIN/fuse                                    ="
+echo "=        $SERVER_BIN_FSW/standalone.sh                                     ="
 echo "=                                                                                         ="
 echo "=    - start up fabric in fuse console: fabric:create --wait-for-provisioning             ="
 echo "=                                                                                         ="
@@ -180,10 +187,12 @@ echo "=                                                                         
 echo "=    - trigger camel route by placing support/date/message.xml file into the              ="
 echo "=      following folder:                                                                  ="
 echo "=                                                                                         ="
-echo "=        $FUSE_HOME/instances/c1/src/data                       =" 
+echo "=        $JBOSS_HOME_FSW/instances/c1/src/data                                 =" 
 echo "=                                                                                         ="
+echo "=  ***********************************************                                        ="
 echo "=                                                                                         ="
-echo "=   $DEMO Setup Complete.                                    ="
+echo "=   $DEMO Setup Complete.                          ="
+echo "=                                                                                         ="
 echo "==========================================================================================="
 echo
 
