@@ -84,7 +84,7 @@ echo
 sed -i "" "s:target:$(pwd)/target:" $SUPPORT_DIR/installation-fsw
 
 # Run FSW installer.
-java -jar $SRC_DIR/$FSW $SUPPORT_DIR/installation-fsw.modified -variablefile $SUPPORT_DIR/installation-fsw.variables
+java -jar $SRC_DIR/$FSW $SUPPORT_DIR/installation-fsw -variablefile $SUPPORT_DIR/installation-fsw.variables
 mv target/jboss-eap-6.1 target/jboss-eap-6.1.fsw
 
 echo "  - copy in property for monitoring dtgov queries..."
