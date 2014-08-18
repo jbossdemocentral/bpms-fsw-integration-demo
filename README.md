@@ -46,6 +46,16 @@ Follow the instructions on the screen to start JBoss BPM Suite server and JBoss 
    ```
 
 
+Coming soon:
+------------
+   
+   * call process from camel route started in switchyard application.
+
+   * call switchyard application from process.
+
+   * others?
+
+
 Notes
 -----
 The s-ramp process includes an email node that will not work unless you have smtp configured (process will continue without SMTP). 
