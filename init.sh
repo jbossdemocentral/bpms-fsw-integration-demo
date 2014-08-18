@@ -75,16 +75,16 @@ if [ -x $JBOSS_HOME ]; then
 fi
 
 # setup FSW installer script with full path (not needed for BPM instaler).
-if [ -r $SUPPORT_DIR/installation-fsw-modifed ]; then
-	echo "  - removing modified fsw installation script."
-	rm $SUPPORT_DIR/installation-fsw-modifed
-fi
+echo "  - checking on refreshed fsw installation script."
+echo
+git checkout $SUPPORT_DIR/installation-fsw
 
 echo "  - modify FSW installer script with full path."
-sed -i $SUPPORT_DIR/installation-fsw-modified "s:target:$(pwd)/target:" $SUPPORT_DIR/installation-fsw
-
+echo
+sed -i "" "s:target:$(pwd)/target:" $SUPPORT_DIR/installation-fsw
+exit
 # Run FSW installer.
-java -jar $SRC_DIR/$FSW $SUPPORT_DIR/installation-fsw-modified -variablefile $SUPPORT_DIR/installation-fsw.variables
+java -jar $SRC_DIR/$FSW $SUPPORT_DIR/installation-fsw.modified -variablefile $SUPPORT_DIR/installation-fsw.variables
 mv target/jboss-eap-6.1 target/jboss-eap-6.1.fsw
 
 echo "  - copy in property for monitoring dtgov queries..."
