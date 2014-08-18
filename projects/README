@@ -1,2 +1,6 @@
 Directory to hold project.
 
+- customer: project setup to upload s-ramp & dtgov integration demo.
+
+- fuse-integration: project to show fuse camel route calling to bpm process.
+
