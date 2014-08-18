@@ -24,7 +24,7 @@ Follow the instructions on the screen to start JBoss BPM Suite server and JBoss 
    which includes an s-ramp wagon and s-ramp repsitory locations for transporting any
    artifacts we build with 'mvn deploy'.
 
-        $ mvn deploy -f projects/customer/pom.xml
+        $ mvn deploy -f projects/customer/evaluation/pom.xml
 
    The cusotmer project now has been deployed in s-ramp repository where you can view
    the artifacts and see that the governance process in the s-ramp was automatically
@@ -35,6 +35,14 @@ Follow the instructions on the screen to start JBoss BPM Suite server and JBoss 
 
    The example of promoting through dev to qa to stage to prod is an example of using
    a local filesystem for this demo.
+
+       $ ls /tmp/dev/
+
+         evaluation-1.0.jar
+       
+       $ ls /tmp/qa/
+
+         evaluation-1.0.jar
    ```
 
 

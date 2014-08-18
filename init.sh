@@ -147,7 +147,7 @@ echo "=  As a developer you have a modified project pom.xml (found in projects/c
 echo "=  which includes an s-ramp wagon and s-ramp repsitory locations for transporting any     ="
 echo "=  artifacts we build with 'mvn deploy'.                                                  ="
 echo "=                                                                                         =" 
-echo "=    $ mvn deploy -f projects/customer/pom.xml                                            ="
+echo "=    $ mvn deploy -f projects/customer/evaluation/pom.xml                                 ="
 echo "=                                                                                         =" 
 echo "=  The rewards project now has been deployed in s-ramp repository where you can view      =" 
 echo "=  the artifacts and see that the governance process in the s-ramp was automatically      ="
