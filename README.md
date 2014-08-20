@@ -32,12 +32,12 @@ Follow the instructions on the screen to start JBoss BPM Suite server and JBoss 
    Login to http://localhost:8080/s-ramp-ui         (u:erics / p:jbossfsw1!)
 
    As a developer you have a modified project pom.xml (found in projects/customer)
-   which includes an s-ramp wagon and s-ramp repsitory locations for transporting any
+   which includes an s-ramp wagon and s-ramp repository locations for transporting any
    artifacts we build with 'mvn deploy'.
 
         $ mvn deploy -f projects/customer/evaluation/pom.xml
 
-   The cusotmer project now has been deployed in s-ramp repository where you can view
+   The customer project now has been deployed in s-ramp repository where you can view
    the artifacts and see that the governance process in the s-ramp was automatically
    started. Claim the approval task in dashboard available in your browser and see the
    rewards artifact deployed in /tmp/dev copied to /tmp/qa upon approval:
