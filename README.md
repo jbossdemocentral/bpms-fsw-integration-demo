@@ -75,7 +75,7 @@ An easy tool to help run this is a [single java jar project called FakeSMTP](htt
 
 Supporting Articles
 -------------------
-None yet...
+[New integration scenarios highlighted in JBoss BPM Suite & JBoss FSW integration demo](http://www.schabell.org/2014/08/new-integration-scenarios-bpmsuite-fsw-demo.html)
 
 
 Released versions
