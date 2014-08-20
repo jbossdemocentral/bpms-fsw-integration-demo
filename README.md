@@ -13,6 +13,17 @@ Quickstart
 
 3. Run 'init.sh' or 'init.bat'.
 
+4. Copy this code snippet into your ~/.m2/settings.xml (authorization for s-ramp repository):
+
+   ```
+   <!-- Added for BPM Suite Governance demo -->
+   <server>
+     <id>local-sramp-repo</id>
+     <username>erics</username>
+     <password>jbossfsw1!</password>
+   </server>
+   ```
+
 Follow the instructions on the screen to start JBoss BPM Suite server and JBoss Fuse Service Works server.
 
    ```
