@@ -7,7 +7,7 @@ the various use cases when working with these two products.
 Quickstart
 ----------
 
-1. [Downloadn and unzip.](https://github.com/eschabell/bpms-fsw-integration-demo/archive/master.zip)
+1. [Download and unzip.](https://github.com/eschabell/bpms-fsw-integration-demo/archive/master.zip)
 
 2. Add products to installs directory.
 
