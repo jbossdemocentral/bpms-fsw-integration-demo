@@ -74,14 +74,9 @@ if [ -x $JBOSS_HOME ]; then
 		rm -rf ./target
 fi
 
-# setup FSW installer script with full path (not needed for BPM instaler).
-echo "  - checking on refreshed fsw installation script."
-echo
-git checkout $SUPPORT_DIR/installation-fsw
-
 echo "  - modify FSW installer script with full path."
 echo
-sed -i "" "s:target:$(pwd)/target:" $SUPPORT_DIR/installation-fsw
+sed -i "" "s:<installpath>.*</installpath>:<installpath>$(pwd)/target</installpath>:" $SUPPORT_DIR/installation-fsw 
 
 # Run FSW installer.
 java -jar $SRC_DIR/$FSW $SUPPORT_DIR/installation-fsw -variablefile $SUPPORT_DIR/installation-fsw.variables
