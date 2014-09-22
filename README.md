@@ -55,14 +55,20 @@ Follow the instructions on the screen to start JBoss BPM Suite server and JBoss 
 
          evaluation-1.0.jar
    ```
-
+  Use Case 1 Design Time Governance:  
+  The First Use Case is using Design Time Governance for Service Life Cycle Management.  This will be split into two parts:  
+  A. Using DTGov with the BPMS Customer Project  
+  B. Using DTGov with the FSW Switchyard Application Project  
+  
+  Use Case 2 Switchyard Application calling a Business Process:  
+  The Switchyard application will call the REST API from the camel route.
+  
+  Use Case 3 Business Process calling a Switchyard Application
+  The business process will call the switchyard application through a SOAP Service
+  
 
 Coming soon:
 ------------
-   
-   * call process from camel route started in switchyard application.
-
-   * call switchyard application from process.
 
    * others?
 
