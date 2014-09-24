@@ -13,10 +13,10 @@ SRC_DIR=./installs
 SUPPORT_DIR=./support
 PRJ_DIR=./projects
 PRJ_DTGOVWF=$JBOSS_HOME_FSW/dtgov-data
-BPMS=jboss-bpms-installer-6.0.2.GA-redhat-5.jar
+BPMS=jboss-bpms-installer-6.0.3.GA-redhat-1.jar
 FSW=jboss-fsw-installer-6.0.0.GA-redhat-4.jar
 DTGOVWF=dtgov-workflows-1.0.1.Final-redhat-8.jar
-BPMS_VERSION=6.0.2
+BPMS_VERSION=6.0.3
 FSW_VERSION=6.0.0
 
 # wipe screen.
