@@ -73,7 +73,28 @@ The First Use Case is using Design Time Governance for Service Life Cycle Manage
 
    Build and deploy the process project.
 
-   TODO: FSW Switchyard app instructions (Kenny) 
+   $ mvn deploy -f projects/fsw-integration/switchyard-example/pom.xml
+   
+    The example of promoting through dev to qa to stage to prod is an example of using
+   a local filesystem for this demo.
+
+       $ ls /tmp/dev/
+
+         switchyard-example-0.0.1-SNAPSHOT.jar
+       
+       $ ls /tmp/qa/
+
+         switchyard-example-0.0.1-SNAPSHOT.jar
+   
+   TO DO: 
+   
+   1. We need to add a individual workflow for both and point to server instance directories so the evaluation   
+   goes into the /tmp/dev/bpms folder which points to the deployment folder for BPMS for dev and then the switchyard app  
+   goes into the /tmp/dev/fsw folder which points to the deployment folder for SY for dev.  This way is shows both  
+   deployments going into the server instance that pertains to the environment such as dev.
+   2. The sym links for the tmp folder need to be added to point to the server instances.  The full environment will work  
+   best with docker containers which will be added later.  Docker containers can represent each environment (dev,qa,etc).
+   
    ```
 
 
@@ -86,7 +107,15 @@ The Switchyard application will start a BPM process through the JBoss BPM Suite 
 
    Build and deploy the process project.
 
-   TODO: FSW Switchyard app instructions (Kenny) 
+   Step 1: Import the switchyard project into JBDS.
+   
+   Step 2: Run the Unit Test, TestIntakeServiceTest, By selecting it in Project explorer and selecting run junit test.
+   
+   TO DO: 
+   
+   1. We should be able to use a SOAP Client such as SOAPUI to call the deployed SY App.  There is an issue  
+   with the httpclient on upgrading to 4.2 from 3.1.  Cookies/authentication are required with the BPMS REST API.  
+   So the SY App gives a class loader error at the moment.  
    ```
 
 Use Case 3: Call Switchyard App from BPM process
@@ -111,7 +140,7 @@ An easy tool to help run this is a [single java jar project called FakeSMTP](htt
 Supporting Articles
 -------------------
 [New integration scenarios highlighted in JBoss BPM Suite & JBoss FSW integration demo](http://www.schabell.org/2014/08/new-integration-scenarios-bpmsuite-fsw-demo.html)
-
+How to Guide within the repository  
 
 Released versions
 -----------------
