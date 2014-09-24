@@ -77,8 +77,8 @@ The First Use Case is using Design Time Governance for Service Life Cycle Manage
    ```
 
 
-Use Case 2: Switchyard application calling a BPM process  
-------------------------------------------------------------
+Use Case 2: Call BPM Process From Switchyard App
+------------------------------------------------
 The Switchyard application will start a BPM process through the JBoss BPM Suite REST API from a Fuse camel route.
   
    ```
@@ -89,8 +89,8 @@ The Switchyard application will start a BPM process through the JBoss BPM Suite 
    TODO: FSW Switchyard app instructions (Kenny) 
    ```
 
-Use Case 3: BPM process accessing a Switchyard application in JBoss FSW
------------------------------------------------------------------------
+Use Case 3: Call Switchyard App from BPM process
+------------------------------------------------
 The BPM process will call the Switchyard application through a SOAP based service.
   
    ```
