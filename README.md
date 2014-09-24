@@ -26,7 +26,16 @@ Quickstart
 
 Follow the instructions on the screen to start JBoss BPM Suite server and JBoss Fuse Service Works server.
 
+
+Use Case 1: Design Time Governance  
+----------------------------------
+
+The First Use Case is using Design Time Governance for Service Life Cycle Management.  This will be split into two examples:  
+
    ```
+   Example 1 - Using DTGov with the BPM Customer Evaluation project  
+   ----------------------------------------------------------------
+
    Login to http://localhost:8180/business-central  (u:erics / p:bpmsuite1!).
 
    Login to http://localhost:8080/s-ramp-ui         (u:erics / p:jbossfsw1!)
@@ -55,22 +64,42 @@ Follow the instructions on the screen to start JBoss BPM Suite server and JBoss 
 
          evaluation-1.0.jar
    ```
-  Use Case 1 Design Time Governance:  
-  The First Use Case is using Design Time Governance for Service Life Cycle Management.  This will be split into two parts:  
-  A. Using DTGov with the BPMS Customer Project  
-  B. Using DTGov with the FSW Switchyard Application Project  
-  
-  Use Case 2 Switchyard Application calling a Business Process:  
-  The Switchyard application will call the REST API from the camel route.
-  
-  Use Case 3 Business Process calling a Switchyard Application
-  The business process will call the switchyard application through a SOAP Service
-  
 
-Coming soon:
-------------
+   ```
+   Example 2 - Using DTGov with the FSW Switchyard application project  
+   -------------------------------------------------------------------
+ 
+   Login to http://localhost:8180/business-central  (u:erics / p:bpmsuite1!).
 
-   * others?
+   Build and deploy the process project.
+
+   TODO: FSW Switchyard app instructions (Kenny) 
+   ```
+
+
+Use Case 2: Switchyard application calling a BPM process  
+------------------------------------------------------------
+The Switchyard application will start a BPM process through the JBoss BPM Suite REST API from a Fuse camel route.
+  
+   ```
+   Login to http://localhost:8180/business-central  (u:erics / p:bpmsuite1!).
+
+   Build and deploy the process project.
+
+   TODO: FSW Switchyard app instructions (Kenny) 
+   ```
+
+Use Case 3: BPM process accessing a Switchyard application in JBoss FSW
+-----------------------------------------------------------------------
+The BPM process will call the Switchyard application through a SOAP based service.
+  
+   ```
+   Login to http://localhost:8180/business-central  (u:erics / p:bpmsuite1!).
+
+   Build and deploy the process project.
+
+   TODO: FSW Switchyard app instructions (Kenny) 
+   ```
 
 
 Notes
