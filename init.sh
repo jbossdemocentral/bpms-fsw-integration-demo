@@ -3,6 +3,7 @@ DEMO="JBoss BPM Suite & JBoss FSW Integration Demo"
 AUTHORS="Kenny Peeples, Eric D. Schabell"
 PROJECT="git@github.com:eschabell/bpms-fsw-integration-demo.git"
 PRODUCT="JBoss BPM Suite & JBoss FSW Integration Demo"
+OSNAME="$(uname -s)"
 JBOSS_HOME=./target/jboss-eap-6.1
 JBOSS_HOME_FSW=./target/jboss-eap-6.1.fsw
 SERVER_DIR=$JBOSS_HOME/standalone/deployments/
@@ -76,7 +77,13 @@ fi
 
 echo "  - modify FSW installer script with full path."
 echo
-sed -i "s:<installpath>.*</installpath>:<installpath>$(pwd)/target</installpath>:" $SUPPORT_DIR/installation-fsw 
+if [ $OSNAME == "Darwin" ]; then
+	# Mac detected, uses this sed command.
+	sed -i "" "s:<installpath>.*</installpath>:<installpath>$(pwd)/target</installpath>:" $SUPPORT_DIR/installation-fsw 
+else
+	# All other OS's use this sed command.
+	sed -i "s:<installpath>.*</installpath>:<installpath>$(pwd)/target</installpath>:" $SUPPORT_DIR/installation-fsw
+fi
 
 # Run FSW installer.
 java -jar $SRC_DIR/$FSW $SUPPORT_DIR/installation-fsw -variablefile $SUPPORT_DIR/installation-fsw.variables
@@ -166,9 +173,7 @@ echo "=  ******** USE CASE 2: Call BPM Process from Switchyard App *******      
 echo "=                                                                                         =" 
 echo "=  Login to http://localhost:8180/business-central  (u:erics / p:bpmsuite1!)              ="
 echo "=                                                                                         ="
-echo "=  Build and deploy the process project.                                                  ="
-echo "=                                                                                         ="
-echo "=  TODO: add instruction (Kenny)                                                          ="
+echo "=  Build and deploy the process project. Open JBDS, import and run unit test              ="
 echo "=                                                                                         ="
 echo "=                                                                                         ="
 echo "=  ******** USE CASE 3: Call Switchyard App from BPM Process *******                      ="
