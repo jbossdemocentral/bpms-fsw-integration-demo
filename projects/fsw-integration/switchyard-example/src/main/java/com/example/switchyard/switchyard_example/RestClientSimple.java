@@ -15,13 +15,13 @@ import org.apache.commons.httpclient.methods.PostMethod;
  * 
  */
 public class RestClientSimple {
-    private static final String BASE_URL = "http://localhost:8080/business-central/rest/";
-    private static final String AUTH_URL = "http://localhost:8080/business-central/org.kie.workbench.KIEWebapp/j_security_check";
+    private static final String BASE_URL = "http://localhost:8180/business-central/rest/";
+    private static final String AUTH_URL = "http://localhost:8180/business-central/org.kie.workbench.KIEWebapp/j_security_check";
     private static final String DEPLOYMENT_ID = "customer:evaluation:1.0";
     private static final String PROCESS_DEF_ID = "customer.evaluation";
     
     private static String username = "erics";
-    private static String password = "bpmsuite";
+    private static String password = "bpmsuite1!";
     @SuppressWarnings("unused")
 	private static AuthenticationType type = AuthenticationType.FORM_BASED;
 

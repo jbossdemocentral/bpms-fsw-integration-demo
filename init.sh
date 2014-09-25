@@ -76,7 +76,7 @@ fi
 
 echo "  - modify FSW installer script with full path."
 echo
-sed -i "" "s:<installpath>.*</installpath>:<installpath>$(pwd)/target</installpath>:" $SUPPORT_DIR/installation-fsw 
+sed -i "s:<installpath>.*</installpath>:<installpath>$(pwd)/target</installpath>:" $SUPPORT_DIR/installation-fsw 
 
 # Run FSW installer.
 java -jar $SRC_DIR/$FSW $SUPPORT_DIR/installation-fsw -variablefile $SUPPORT_DIR/installation-fsw.variables
@@ -116,6 +116,9 @@ echo
 cp $SUPPORT_DIR/dtgovwf-pom.xml $PRJ_DTGOVWF/pom.xml
 mvn -f $PRJ_DTGOVWF/pom.xml package
 cp $PRJ_DTGOVWF/target/$DTGOVWF $SUPPORT_DIR
+
+# make sym link for /tmp/prod to BPM server
+ln -s /tmp/prod $JBOSS_HOME/standalone/deployments
 
 # Final instructions to user to start and run demo.
 echo

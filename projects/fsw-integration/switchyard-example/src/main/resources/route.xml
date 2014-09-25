@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+  
+  
+<routes xmlns="http://camel.apache.org/schema/spring">
+
+    <route>
+        <from uri="switchyard://IntakeServiceInterface"/>
+        <log message="IntakeServiceInterface - message received: ${body}"/>
+        <to uri="bean:com.example.switchyard.switchyard_example.RestClientSimple?method=startProcess"/>
+    </route>
+</routes>
