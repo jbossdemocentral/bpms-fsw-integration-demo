@@ -3,7 +3,7 @@ JBoss BPM Suite & JBoss Fuse Serivce Works Integration Demo
 This project fully automates the install of JBoss BPM Suite and on a separate EAP instance JBoss FSW products. It will demonstrate
 the various use cases when working with these two products.
 
-![Use Case SY to BPM](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/fsw-bpms-integration-2.png?raw=true)fsw-bpms-integration-2
+![Use Case SY to BPM](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/fsw-bpms-integration-2.png?raw=true)
 
 Quickstart
 ----------
