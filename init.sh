@@ -93,9 +93,11 @@ echo "  - copy in property for monitoring dtgov queries..."
 echo 
 cp $SUPPORT_DIR/dtgov.properties $JBOSS_HOME_FSW/standalone/configuration
 
+read -p "Starting BPMS Install <hit return or wait 5 seconds>" -t 5
+
 # Run BPM Suite installer.
 echo Product installer running now...
-echo
+echo $SRC_DIR/$BPMS $SUPPORT_DIR/installation-bpms $SUPPORT_DIR/installation-bpms.variable
 java -jar $SRC_DIR/$BPMS $SUPPORT_DIR/installation-bpms -variablefile $SUPPORT_DIR/installation-bpms.variables
 
 echo
@@ -166,7 +168,9 @@ echo "=                                                                         
 echo "=                                                                                         =" 
 echo "=  **** USE CASE 1: Example 2, Design Time Governance with FSW Switchyard App  *****      ="
 echo "=                                                                                         =" 
-echo "=   TODO: add instruction (Kenny)                                                         ="
+echo "=    The above deploys to the BPMS server as a production server.  We will do the same    ="
+echo "=    for the FSW server in the future but currently /tmp/prod pooints to BPMS.            =" 
+echo "=    $ mvn deploy -f projects/fsw-integration/switchyard-example/pom.xml                  ="
 echo "=                                                                                         =" 
 echo "=                                                                                         =" 
 echo "=  ******** USE CASE 2: Call BPM Process from Switchyard App *******                      ="
@@ -174,6 +178,7 @@ echo "=                                                                         
 echo "=  Login to http://localhost:8180/business-central  (u:erics / p:bpmsuite1!)              ="
 echo "=                                                                                         ="
 echo "=  Build and deploy the process project. Open JBDS, import and run unit test              ="
+echo "=  by right clicking it on Project Explorer and runnuning junit test, TestIntakeServiceTest =" 
 echo "=                                                                                         ="
 echo "=                                                                                         ="
 echo "=  ******** USE CASE 3: Call Switchyard App from BPM Process *******                      ="
