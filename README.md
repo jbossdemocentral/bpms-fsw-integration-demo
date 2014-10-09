@@ -18,11 +18,13 @@ Quickstart
 
    ```
    <!-- Added for BPM Suite Governance demo -->
-   <server>
-     <id>local-sramp-repo</id>
-     <username>erics</username>
-     <password>jbossfsw1!</password>
-   </server>
+   <servers>
+   		<server>
+          <id>local-sramp-repo</id>
+          <username>erics</username>
+          <password>jbossfsw1!</password>
+      </server>
+   </servers>
    ```
 
 Follow the instructions on the screen to start JBoss BPM Suite server and JBoss Fuse Service Works server.
