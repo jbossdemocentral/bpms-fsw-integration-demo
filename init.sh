@@ -93,8 +93,6 @@ echo "  - copy in property for monitoring dtgov queries..."
 echo 
 cp $SUPPORT_DIR/dtgov.properties $JBOSS_HOME_FSW/standalone/configuration
 
-read -p "Starting BPMS Install <hit return or wait 5 seconds>" -t 5
-
 # Run BPM Suite installer.
 echo Product installer running now...
 echo $SRC_DIR/$BPMS $SUPPORT_DIR/installation-bpms $SUPPORT_DIR/installation-bpms.variable
