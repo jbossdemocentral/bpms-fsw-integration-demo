@@ -140,8 +140,8 @@ Released versions
 
 See the tagged releases for the following versions of the product:
 
-- v1.1 - JBoss BPM Suite 6.0.3 installer, JBoss Fuse Service Works 6.0.0 installer, S-RAMP, DTGov, and customer demo installed,
-	completed todo's for use case 1. 
+- v1.1 - JBoss BPM Suite 6.0.3 installer, JBoss Fuse Service Works 6.0.0 installer, customer demo installed and two governance
+	workflows deployed for each product.
 
 - v1.0 - JBoss BPM Suite 6.0.3 installer, JBoss Fuse Service Works 6.0.0 installer, S-RAMP, DTGov, and customer demo installed.
 
