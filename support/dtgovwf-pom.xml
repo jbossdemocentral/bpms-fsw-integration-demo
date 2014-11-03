@@ -4,7 +4,7 @@
 
   <groupId>org.overlord.dtgov</groupId>
   <artifactId>dtgov-workflows</artifactId>
-  <version>1.0.1.Final-redhat-8</version>
+  <version>1.0.2.Final-redhat-8</version>
   <name>Design Time Governance: Workflows</name>
   <packaging>jar</packaging>
   <description>Design Time Governance governance workflows.</description>

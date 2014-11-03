@@ -59,11 +59,11 @@ The First Use Case is using Design Time Governance for Service Life Cycle Manage
    The example of promoting through dev to qa to stage to prod is an example of using
    a local filesystem for this demo.
 
-       $ ls /tmp/dev/
+       $ ls /tmp/dev/bpms
 
          evaluation-1.0.jar
        
-       $ ls /tmp/qa/
+       $ ls /tmp/qa/bpms
 
          evaluation-1.0.jar
    ```
@@ -81,23 +81,13 @@ The First Use Case is using Design Time Governance for Service Life Cycle Manage
     The example of promoting through dev to qa to stage to prod is an example of using
    a local filesystem for this demo.
 
-       $ ls /tmp/dev/
+       $ ls /tmp/dev/fsw
 
          switchyard-example-0.0.1-SNAPSHOT.jar
        
-       $ ls /tmp/qa/
+       $ ls /tmp/qa/fsw
 
          switchyard-example-0.0.1-SNAPSHOT.jar
-   
-   TO DO: 
-   
-   1. We need to add a individual workflow for both and point to server instance directories so the evaluation   
-   goes into the /tmp/dev/bpms folder which points to the deployment folder for BPMS for dev and then the switchyard app  
-   goes into the /tmp/dev/fsw folder which points to the deployment folder for SY for dev.  This way is shows both  
-   deployments going into the server instance that pertains to the environment such as dev.
-   2. The sym links for the tmp folder need to be added to point to the server instances.  The full environment will work  
-   best with docker containers which will be added later.  Docker containers can represent each environment (dev,qa,etc).
-   
    ```
 
 
@@ -150,11 +140,15 @@ Released versions
 
 See the tagged releases for the following versions of the product:
 
+- v1.1 - JBoss BPM Suite 6.0.3 installer, JBoss Fuse Service Works 6.0.0 installer, S-RAMP, DTGov, and customer demo installed,
+	completed todo's for use case 1. 
+
 - v1.0 - JBoss BPM Suite 6.0.3 installer, JBoss Fuse Service Works 6.0.0 installer, S-RAMP, DTGov, and customer demo installed.
 
 
 [![Video Demo Run](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/video-demo-run.png?raw=true)](http://vimeo.com/ericschabell/bpms-fsw-integration-demo-bpm-governance)
-![Process](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/dtgov-process.png?raw=true)
+![Process FSW](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/dtgov-process-fsw.png?raw=true)
+![Process BPMS](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/dtgov-process-bpms.png?raw=true)
 ![Artifacts](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/sramp-artifacts.png?raw=true)
 ![Email S-RAMP Service](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/sramp-email-notify.png?raw=true)
 

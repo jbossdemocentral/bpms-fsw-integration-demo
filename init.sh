@@ -16,7 +16,7 @@ PRJ_DIR=./projects
 PRJ_DTGOVWF=$JBOSS_HOME_FSW/dtgov-data
 BPMS=jboss-bpms-installer-6.0.3.GA-redhat-1.jar
 FSW=jboss-fsw-installer-6.0.0.GA-redhat-4.jar
-DTGOVWF=dtgov-workflows-1.0.1.Final-redhat-8.jar
+DTGOVWF=dtgov-workflows-1.0.2.Final-redhat-8.jar
 BPMS_VERSION=6.0.3
 FSW_VERSION=6.0.0
 
@@ -116,16 +116,16 @@ cp $SUPPORT_DIR/standalone.xml $SERVER_CONF/standalone.xml
 echo "  - making sure standalone.sh for server is executable..."
 echo
 chmod u+x $JBOSS_HOME/bin/standalone.sh
+chmod u+x $JBOSS_HOME_FSW/bin/standalone.sh
 
 # cp pom to dtgovwf, mvn package, cli upload + type
-echo "  - copy modified pom to dtgov workflow project and build..."
+echo "  - copy modified pom and workflow to dtgov workflow project and build..."
 echo
 cp $SUPPORT_DIR/dtgovwf-pom.xml $PRJ_DTGOVWF/pom.xml
+cp $SUPPORT_DIR/overlord.demo.SimpleReleaseProcessBPMS.bpmn $PRJ_DTGOVWF/src/main/resources/SRAMPPackage/overlord.demo.SimpleReleaseProcessBPMS.bpmn
+cp $SUPPORT_DIR/overlord.demo.SimpleReleaseProcess.bpmn $PRJ_DTGOVWF/src/main/resources/SRAMPPackage/overlord.demo.SimpleReleaseProcess.bpmn
 mvn -f $PRJ_DTGOVWF/pom.xml package
 cp $PRJ_DTGOVWF/target/$DTGOVWF $SUPPORT_DIR
-
-# make sym link for /tmp/prod to BPM server
-ln -s /tmp/prod $JBOSS_HOME/standalone/deployments
 
 # Final instructions to user to start and run demo.
 echo

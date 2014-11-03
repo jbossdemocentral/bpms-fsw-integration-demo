@@ -2,7 +2,7 @@
 <AutomatedInstallation langpack="eng">
 <com.izforge.izpack.panels.HTMLLicencePanel id="HTMLLicencePanel"/>
 <com.izforge.izpack.panels.TargetPanel id="DirectoryPanel">
-	<installpath>target</installpath>
+	<installpath>/Users/erics/demo-projects/bpms/bpms-fsw-integration-demo/target</installpath>
 </com.izforge.izpack.panels.TargetPanel>
 <com.izforge.izpack.panels.TreePacksPanel id="TreePacksPanel">
 <pack index="0" name="Red Hat JBoss Enterprise Application Platform" selected="true"/>
