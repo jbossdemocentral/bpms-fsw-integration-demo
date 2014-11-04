@@ -33,7 +33,7 @@ Follow the instructions on the screen to start JBoss BPM Suite server and JBoss 
 Use Case 1: Design Time Governance  
 ----------------------------------
 
-The First Use Case is using Design Time Governance for Service Life Cycle Management.  This will be split into two examples:  
+The First Use Case is using Design Time Governance for Service Life Cycle Management. This will be split into two examples:  
 
    ```
    Example 1 - Using DTGov with the BPM Customer Evaluation project  

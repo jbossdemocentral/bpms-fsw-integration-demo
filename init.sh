@@ -167,7 +167,7 @@ echo "=                                                                         
 echo "=  **** USE CASE 1: Example 2, Design Time Governance with FSW Switchyard App  *****      ="
 echo "=                                                                                         =" 
 echo "=    The above deploys to the BPMS server as a production server.  We will do the same    ="
-echo "=    for the FSW server in the future but currently /tmp/prod pooints to BPMS.            =" 
+echo "=    for the FSW server in the future but currently /tmp/prod points to BPMS.             =" 
 echo "=    $ mvn deploy -f projects/fsw-integration/switchyard-example/pom.xml                  ="
 echo "=                                                                                         =" 
 echo "=                                                                                         =" 
