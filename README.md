@@ -146,7 +146,7 @@ See the tagged releases for the following versions of the product:
 - v1.0 - JBoss BPM Suite 6.0.3 installer, JBoss Fuse Service Works 6.0.0 installer, S-RAMP, DTGov, and customer demo installed.
 
 
-[![Video Demo Run](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/video-demo-run.png?raw=true)](http://vimeo.com/ericschabell/bpms-fsw-integration-demo-bpm-governance)
+[![Video Demo Run](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/video-demo-run.png?raw=true)](http://vimeo.com/ericschabell/bpms-fsw-integration-demo-installation-governance)
 ![Process FSW](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/dtgov-process-fsw.png?raw=true)
 ![Process BPMS](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/dtgov-process-bpms.png?raw=true)
 ![Artifacts](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/sramp-artifacts.png?raw=true)
