@@ -3,12 +3,12 @@ JBoss BPM Suite & JBoss Fuse Serivce Works Integration Demo
 This project fully automates the install of JBoss BPM Suite and on a separate EAP instance JBoss FSW products. It will demonstrate
 the various use cases when working with these two products.
 
-![Use Case SY to BPM](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/fsw-bpms-integration-2.png?raw=true)
+![Use Case SY to BPM](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/blob/master/docs/demo-images/fsw-bpms-integration-2.png?raw=true)
 
 Quickstart
 ----------
 
-1. [Download and unzip.](https://github.com/eschabell/bpms-fsw-integration-demo/archive/master.zip)
+1. [Download and unzip.](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/archive/master.zip)
 
 2. Add products to installs directory.
 
@@ -140,15 +140,17 @@ Released versions
 
 See the tagged releases for the following versions of the product:
 
+- v1.1 - moved to JBoss Demo Central.
+
 - v1.1 - JBoss BPM Suite 6.0.3 installer, JBoss Fuse Service Works 6.0.0 installer, customer demo installed and two governance
 	workflows deployed for each product.
 
 - v1.0 - JBoss BPM Suite 6.0.3 installer, JBoss Fuse Service Works 6.0.0 installer, S-RAMP, DTGov, and customer demo installed.
 
 
-[![Video Demo Run](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/video-demo-run.png?raw=true)](http://vimeo.com/ericschabell/bpms-fsw-integration-demo-installation-governance)
-![Process FSW](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/dtgov-process-fsw.png?raw=true)
-![Process BPMS](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/dtgov-process-bpms.png?raw=true)
-![Artifacts](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/sramp-artifacts.png?raw=true)
-![Email S-RAMP Service](https://github.com/eschabell/bpms-fsw-integration-demo/blob/master/docs/demo-images/sramp-email-notify.png?raw=true)
+[![Video Demo Run](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/blob/master/docs/demo-images/video-demo-run.png?raw=true)](http://vimeo.com/ericschabell/bpms-fsw-integration-demo-installation-governance)
+![Process FSW](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/blob/master/docs/demo-images/dtgov-process-fsw.png?raw=true)
+![Process BPMS](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/blob/master/docs/demo-images/dtgov-process-bpms.png?raw=true)
+![Artifacts](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/blob/master/docs/demo-images/sramp-artifacts.png?raw=true)
+![Email S-RAMP Service](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/blob/master/docs/demo-images/sramp-email-notify.png?raw=true)
 
