@@ -13,6 +13,7 @@
       <sca:interface.wsdl interface="IntakeService.wsdl#wsdl.porttype(IntakeService)"/>
       <soap:binding.soap name="soap1">
         <soap:wsdl>IntakeService.wsdl</soap:wsdl>
+	<soap:socketAddr>:18002</soap:socketAddr>
       </soap:binding.soap>
     </sca:service>
   </sca:composite>
