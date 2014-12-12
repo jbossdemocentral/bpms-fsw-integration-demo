@@ -3,9 +3,9 @@
   
 <routes xmlns="http://camel.apache.org/schema/spring">
 
-    <route>
-        <from uri="switchyard://IntakeServiceInterface"/>
+    <route trace="true" >
+        <from uri="switchyard://IntakeService"/>
         <log message="IntakeServiceInterface - message received: ${body}"/>
-        <to uri="bean:com.example.switchyard.switchyard_example.RestClientSimple?method=startProcess"/>
+        <to uri="bean:com.example.switchyard.switchyard_example.RestClientSimple4x?method=startProcess"/>
     </route>
 </routes>

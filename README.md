@@ -71,21 +71,30 @@ The First Use Case is using Design Time Governance for Service Life Cycle Manage
    ```
    Example 2 - Using DTGov with the FSW Switchyard application project  
    -------------------------------------------------------------------
- 
-   Login to http://localhost:8180/business-central  (u:erics / p:bpmsuite1!).
 
    Build and deploy the process project.
 
    $ mvn deploy -f projects/fsw-integration/switchyard-example/pom.xml
    
-    The example of promoting through dev to qa to stage to prod is an example of using
-   a local filesystem for this demo.
+      Login to http://localhost:8180/business-central  (u:erics / p:bpmsuite1!).
+      
+      The example of promoting through dev to qa to stage to prod is an example of using
+   a local filesystem for this demo.  Move the Switchyard example to Production to deploy  
+   to the running server instance.  A sym link in the init script ties /tmp/prod/fsw to the server deployments.  
 
        $ ls /tmp/dev/fsw
 
          switchyard-example-0.0.1-SNAPSHOT.jar
        
        $ ls /tmp/qa/fsw
+
+         switchyard-example-0.0.1-SNAPSHOT.jar
+         
+       $ ls /tmp/stage/fsw (When this task is complete the SY application is deployed to production)
+
+         switchyard-example-0.0.1-SNAPSHOT.jar
+         
+       $ ls /tmp/prod/fsw
 
          switchyard-example-0.0.1-SNAPSHOT.jar
    ```
@@ -98,17 +107,20 @@ The Switchyard application will start a BPM process through the JBoss BPM Suite 
    ```
    Login to http://localhost:8180/business-central  (u:erics / p:bpmsuite1!).
 
-   Build and deploy the process project.
+   You can verify the process is started in business central.
+   
+   Example 1 - Run the test at the command line
+   
+   mvn test -f ./projects/fsw-integration/switchyard-example/pom.xml  
+   
+   Example 2 - Run the test through JBDS
 
    Step 1: Import the switchyard project into JBDS.
    
    Step 2: Run the Unit Test, TestIntakeServiceTest, By selecting it in Project explorer and selecting run junit test.
    
-   TO DO: 
+   Example 3 - Run the test through SOAPUI using http://localhost:8080/IntakeService/IntakeService?wsdl
    
-   1. We should be able to use a SOAP Client such as SOAPUI to call the deployed SY App.  There is an issue  
-   with the httpclient on upgrading to 4.2 from 3.1.  Cookies/authentication are required with the BPMS REST API.  
-   So the SY App gives a class loader error at the moment.  
    ```
 
 Use Case 3: Call Switchyard App from BPM process
@@ -118,9 +130,9 @@ The BPM process will call the Switchyard application through a SOAP based servic
    ```
    Login to http://localhost:8180/business-central  (u:erics / p:bpmsuite1!).
 
-   Build and deploy the process project.
+   Start the Business Process to start the Switchyard Application which in turn will start the Custoemr Evaluation process.  
+   The Switchyard endpoint is http://localhost:8080/IntakeService/IntakeService?wsdl
 
-   TODO: FSW Switchyard app instructions (Kenny) 
    ```
 
 

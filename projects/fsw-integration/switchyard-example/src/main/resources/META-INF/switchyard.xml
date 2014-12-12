@@ -3,7 +3,8 @@
   <sca:composite name="switchyard-example" targetNamespace="urn:com.example.switchyard:switchyard-example:1.0">
     <sca:component name="CamelServiceRoute">
       <camel:implementation.camel>
-        <camel:java class="com.example.switchyard.switchyard_example.CamelServiceRoute"/>
+	<camel:xml path="route.xml"/>
+	<!-- <camel:java class="com.example.switchyard.switchyard_example.CamelServiceRoute"/> -->
       </camel:implementation.camel>
       <sca:service name="IntakeService">
         <sca:interface.wsdl interface="IntakeService.wsdl#wsdl.porttype(IntakeService)"/>

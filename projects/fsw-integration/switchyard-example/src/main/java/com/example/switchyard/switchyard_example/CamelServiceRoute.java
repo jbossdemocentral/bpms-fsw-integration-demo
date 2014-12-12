@@ -11,7 +11,7 @@ public class CamelServiceRoute extends RouteBuilder {
 		// TODO Auto-generated method stub
 		from("switchyard://IntakeService")
 		.log("Received message for 'IntakeService' : ${body}")
-		.bean(com.example.switchyard.switchyard_example.RestClientSimple.class,"startProcess");
+		.bean(com.example.switchyard.switchyard_example.RestClientSimple4x.class,"startProcess");
 	}
 
 }

@@ -31,14 +31,18 @@ public class TestIntakeServiceTest {
 
 	@Test
 	public void testNewOperation() throws Exception {
+		String resultstr="FAILED";
 	    try {
 		  Object message = "test";
 		  Object result = service.operation("NewOperation").sendInOut(message).getContent(Object.class);
-		  Assert.assertTrue("test".equals(result));
+		  resultstr = (String) result;
+		  System.out.println(">>>"+resultstr+"<<<");
+		  Assert.assertTrue(resultstr.contains("SUCCESS"));
 	    }
 	    catch (Exception e)
 	    {
 		  System.out.println("Exception Message: " + e.getMessage());
+		  Assert.assertFalse(resultstr.contains("FAILED"));
 	    }
 	}
 

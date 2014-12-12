@@ -10,6 +10,7 @@ SERVER_DIR=$JBOSS_HOME/standalone/deployments/
 SERVER_CONF=$JBOSS_HOME/standalone/configuration/
 SERVER_BIN=$JBOSS_HOME/bin
 SERVER_BIN_FSW=$JBOSS_HOME_FSW/bin
+SERVER_DIR_FSW=$JBOSS_HOME_FSW/standalone/deployments
 SRC_DIR=./installs
 SUPPORT_DIR=./support
 PRJ_DIR=./projects
@@ -87,14 +88,16 @@ fi
 
 # Run FSW installer.
 java -jar $SRC_DIR/$FSW $SUPPORT_DIR/installation-fsw -variablefile $SUPPORT_DIR/installation-fsw.variables
+read -p "FSW install finished..."
 mv $JBOSS_HOME $JBOSS_HOME_FSW
-
+read -p "Moved directory..."
 echo "  - copy in property for monitoring dtgov queries..."
 echo 
 cp $SUPPORT_DIR/dtgov.properties $JBOSS_HOME_FSW/standalone/configuration
 
 # Run BPM Suite installer.
 echo Product installer running now...
+read -p "BPM install..."
 echo $SRC_DIR/$BPMS $SUPPORT_DIR/installation-bpms $SUPPORT_DIR/installation-bpms.variable
 java -jar $SRC_DIR/$BPMS $SUPPORT_DIR/installation-bpms -variablefile $SUPPORT_DIR/installation-bpms.variables
 
@@ -126,6 +129,9 @@ cp $SUPPORT_DIR/overlord.demo.SimpleReleaseProcessBPMS.bpmn $PRJ_DTGOVWF/src/mai
 cp $SUPPORT_DIR/overlord.demo.SimpleReleaseProcess.bpmn $PRJ_DTGOVWF/src/main/resources/SRAMPPackage/overlord.demo.SimpleReleaseProcess.bpmn
 mvn -f $PRJ_DTGOVWF/pom.xml package
 cp $PRJ_DTGOVWF/target/$DTGOVWF $SUPPORT_DIR
+
+# setup sym link so switchyard app will be deployed to the same server uponqa task complete
+ln -s /tmp/prod/fsw $SERVER_DIR_FSW
 
 # Final instructions to user to start and run demo.
 echo
@@ -171,6 +177,13 @@ echo "=    for the FSW server in the future but currently /tmp/prod points to BP
 echo "=                                                                                         =" 
 echo "=    $ mvn deploy -f projects/fsw-integration/switchyard-example/pom.xml                  ="
 echo "=                                                                                         =" 
+echo "=                                                                                         =" 
+echo "=  The switchyard project now has been deployed in s-ramp repository where you can view      =" 
+echo "=  the artifacts and see that the governance process in the s-ramp was automatically      ="
+echo "=  started. Claim the approval task in dashboard available in your browser and see the    ="
+echo "=  rewards artifact deployed in /tmp/dev copied to /tmp/qa upon approval:                 ="
+echo "=                                                                                         =" 
+echo "=    http://localhost:8080/s-ramp-ui            u:erics/p:jbossfsw1!                      ="
 echo "=                                                                                         =" 
 echo "=  ******** USE CASE 2: Call BPM Process from Switchyard App *******                      ="
 echo "=                                                                                         =" 
