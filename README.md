@@ -120,6 +120,7 @@ The Switchyard application will start a BPM process through the JBoss BPM Suite 
    Step 2: Run the Unit Test, TestIntakeServiceTest, By selecting it in Project explorer and selecting run junit test.
    
    Example 3 - Run the test through SOAPUI using http://localhost:8080/IntakeService/IntakeService?wsdl
+	An example SOAPUI project is at support/FSWBPMS-soapui-project.xml.  Use the request and send any message in the request.
    
    ```
 
@@ -132,6 +133,7 @@ The BPM process will call the Switchyard application through a SOAP based servic
 
    Start the Business Process to start the Switchyard Application which in turn will start the Custoemr Evaluation process.  
    The Switchyard endpoint is http://localhost:8080/IntakeService/IntakeService?wsdl
+   TO DO: Eric create a separate business process to call the SOAP service which starts the Camel route to cll the customer evaluation process.
 
    ```
 

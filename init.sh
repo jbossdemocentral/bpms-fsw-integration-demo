@@ -192,6 +192,8 @@ echo "=                                                                         
 echo "=  Build and deploy the process project. Open JBDS, import and run unit test              ="
 echo "=  by right clicking it on Project Explorer and running junit test called                 ="
 echo "=  TestIntakeServiceTest.                                                                 =" 
+echo "=  The unit test can also be run with the mvn test.  SOAPUI can also be used to start     ="
+echo "=  the camel route.  See the README for more info.
 echo "=                                                                                         ="
 echo "=                                                                                         ="
 echo "=  ******** USE CASE 3: Call Switchyard App from BPM Process *******                      ="
@@ -200,7 +202,8 @@ echo "=  Login to http://localhost:8180/business-central  (u:erics / p:bpmsuite1
 echo "=                                                                                         ="
 echo "=  Build and deploy the process project.                                                  ="
 echo "=                                                                                         ="
-echo "=  TODO: add instruction (Kenny)                                                          ="
+echo "=  TODO: Eric to add new business process to call the SOAP endpoint to start              =" 
+echo "=  the customer evaluation process through the camel route.                               ="
 echo "=                                                                                         ="
 echo "=                                                                                         ="
 echo "=   $DEMO Setup Complete.                          ="

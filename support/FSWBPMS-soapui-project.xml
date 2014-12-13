@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="FSWBPMS" soapui-version="4.0.1.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="IntakeServiceSOAP" type="wsdl" bindingName="{http://www.example.org/IntakeService/}IntakeServiceSOAP" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/IntakeService/IntakeService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/IntakeService/IntakeService?wsdl"><con:part><con:url>http://localhost:8080/IntakeService/IntakeService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="IntakeService" targetNamespace="http://www.example.org/IntakeService/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.example.org/IntakeService/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/IntakeService/">
+      <xsd:element name="NewOperation">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="NewOperationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="NewOperationResponse">
+    <wsdl:part element="tns:NewOperationResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NewOperationRequest">
+    <wsdl:part element="tns:NewOperation" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IntakeService">
+    <wsdl:operation name="NewOperation">
+      <wsdl:input message="tns:NewOperationRequest"></wsdl:input>
+      <wsdl:output message="tns:NewOperationResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IntakeServiceSOAP" type="tns:IntakeService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="NewOperation">
+      <soap:operation soapAction="http://www.example.org/IntakeService/NewOperation"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IntakeService">
+    <wsdl:port binding="tns:IntakeServiceSOAP" name="IntakeServiceSOAP">
+      <soap:address location="http://localhost:8080/IntakeService/IntakeService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/IntakeService/IntakeService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="http://www.example.org/IntakeService/NewOperation" name="NewOperation" bindingOperationName="NewOperation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/IntakeService/IntakeService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:int="http://www.example.org/IntakeService/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <int:NewOperation>
+         <in>TestHelloWorld</in>
+      </int:NewOperation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/IntakeService/NewOperation"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>
