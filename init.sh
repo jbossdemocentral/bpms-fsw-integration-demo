@@ -128,6 +128,7 @@ mvn -f $PRJ_DTGOVWF/pom.xml package
 cp $PRJ_DTGOVWF/target/$DTGOVWF $SUPPORT_DIR
 
 # setup sym link so switchyard app will be deployed to the same server uponqa task complete
+rm -Rf /tmp/dev /tmp/qa /tmp/stage /tmp/prod
 ln -s /tmp/prod/fsw $SERVER_DIR_FSW
 
 # Final instructions to user to start and run demo.
