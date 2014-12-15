@@ -193,7 +193,7 @@ echo "=  Build and deploy the process project. Open JBDS, import and run unit te
 echo "=  by right clicking it on Project Explorer and running junit test called                 ="
 echo "=  TestIntakeServiceTest.                                                                 =" 
 echo "=  The unit test can also be run with the mvn test.  SOAPUI can also be used to start     ="
-echo "=  the camel route.  See the README for more info.
+echo "=  the camel route.  See the README for more info.                                        ="
 echo "=                                                                                         ="
 echo "=                                                                                         ="
 echo "=  ******** USE CASE 3: Call Switchyard App from BPM Process *******                      ="
