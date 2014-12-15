@@ -88,16 +88,13 @@ fi
 
 # Run FSW installer.
 java -jar $SRC_DIR/$FSW $SUPPORT_DIR/installation-fsw -variablefile $SUPPORT_DIR/installation-fsw.variables
-read -p "FSW install finished..."
 mv $JBOSS_HOME $JBOSS_HOME_FSW
-read -p "Moved directory..."
 echo "  - copy in property for monitoring dtgov queries..."
 echo 
 cp $SUPPORT_DIR/dtgov.properties $JBOSS_HOME_FSW/standalone/configuration
 
 # Run BPM Suite installer.
 echo Product installer running now...
-read -p "BPM install..."
 echo $SRC_DIR/$BPMS $SUPPORT_DIR/installation-bpms $SUPPORT_DIR/installation-bpms.variable
 java -jar $SRC_DIR/$BPMS $SUPPORT_DIR/installation-bpms -variablefile $SUPPORT_DIR/installation-bpms.variables
 
