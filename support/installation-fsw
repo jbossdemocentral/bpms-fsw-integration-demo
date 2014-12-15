@@ -20,7 +20,7 @@
 <com.izforge.izpack.panels.UserInputPanel id="CreateUserPanel">
 <userInput>
 <entry key="adminPassword" value="534a7168bca47597eaa61e94940993e3"/>
-<entry key="adminUser" value="admin"/>
+<entry key="adminUser" value="erics"/>
 </userInput>
 </com.izforge.izpack.panels.UserInputPanel>
 <com.izforge.izpack.panels.UserInputPanel id="FSWCredentials">
