@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.example.switchyard</groupId>
   <artifactId>switchyard-example</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>1.0.0</version>
   <name>com.example.switchyard:switchyard-example</name>
   <properties>
     <switchyard.version>1.1.1-p5-redhat-1</switchyard.version>
