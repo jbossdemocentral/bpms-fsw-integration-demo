@@ -18,7 +18,7 @@ set PRJ_DIR=%PROJECT_HOME%projects
 set TARGET_DIR=%PROJECT_HOME%target
 set PRJ_DTGOVWF=%JBOSS_HOME_FSW%\dtgov-data
 set FSW_CONFIG=%SUPPORT_DIR%\installation-fsw
-set FSW_CONFIG_LOCAL=%SUPPORT_DIR%\installation-fsw.local
+set FSW_CONFIG_LOCAL=%TARGET_DIR%\installation-fsw.local
 set BPMS=jboss-bpms-installer-6.0.3.GA-redhat-1.jar
 set FSW=jboss-fsw-installer-6.0.0.GA-redhat-4.jar
 set DTGOVWF=dtgov-workflows-1.0.2.Final-redhat-8.jar
@@ -88,6 +88,14 @@ if exist %JBOSS_HOME% (
 	rmdir /s /q "%PROJECT_HOME%\target"
 )
 
+if not exist %TARGET_DIR% (
+	echo - creating the target directory...
+	echo.
+	md %TARGET_DIR%
+) else (
+	echo - detected target directory, moving on...
+)
+
 echo   - modify FSW installer script with full path.
 echo.
 if exist %FSW_CONFIG_LOCAL% del %FSW_CONFIG_LOCAL%
@@ -98,7 +106,7 @@ for /f "tokens=* delims= " %%a in (%FSW_CONFIG%) do (
 ) 
 
 REM Run FSW installer.
-call java -jar "%SRC_DIR%\%FSW%" "%SUPPORT_DIR%\installation-fsw.local" -variablefile "%SUPPORT_DIR%\installation-fsw.variables"
+call java -jar "%SRC_DIR%\%FSW%" "%TARGET_DIR%\installation-fsw.local" -variablefile "%SUPPORT_DIR%\installation-fsw.variables"
 
 if not "%ERRORLEVEL%" == "0" (
 	echo Error Occurred During %PRODUCT% Installation!
