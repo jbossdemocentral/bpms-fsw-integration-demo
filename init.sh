@@ -4,6 +4,7 @@ AUTHORS="Kenny Peeples, Eric D. Schabell"
 PROJECT="git@github.com:jbossdemocentral/bpms-fsw-integration-demo.git"
 PRODUCT="JBoss BPM Suite & JBoss FSW Integration Demo"
 OSNAME="$(uname -s)"
+TARGET_DIR=./target
 JBOSS_HOME=./target/jboss-eap-6.1
 JBOSS_HOME_FSW=./target/jboss-eap-6.1.fsw
 SERVER_DIR=$JBOSS_HOME/standalone/deployments/
@@ -76,18 +77,39 @@ if [ -x $JBOSS_HOME ]; then
 		rm -rf ./target
 fi
 
+# Create the target directory if it does not already exist.
+if [ ! -x target ]; then
+		echo "  - creating the target directory..."
+		echo
+		mkdir target
+else
+		echo "  - detected target directory, moving on..."
+		echo
+fi
+
 echo "  - modify FSW installer script with full path."
+
+cp $SUPPORT_DIR/installation-fsw $TARGET_DIR/installation-fsw.local
+
 echo
 if [ $OSNAME == "Darwin" ]; then
 	# Mac detected, uses this sed command.
-	sed -i "" "s:<installpath>.*</installpath>:<installpath>$(pwd)/target</installpath>:" $SUPPORT_DIR/installation-fsw 
+	sed -i "" "s:<installpath>.*</installpath>:<installpath>$(pwd)/target</installpath>:" $TARGET_DIR/installation-fsw.local 
 else
 	# All other OS's use this sed command.
-	sed -i "s:<installpath>.*</installpath>:<installpath>$(pwd)/target</installpath>:" $SUPPORT_DIR/installation-fsw
+	sed -i "s:<installpath>.*</installpath>:<installpath>$(pwd)/target</installpath>:" $TARGET_DIR/installation-fsw.local
 fi
 
 # Run FSW installer.
-java -jar $SRC_DIR/$FSW $SUPPORT_DIR/installation-fsw -variablefile $SUPPORT_DIR/installation-fsw.variables
+java -jar $SRC_DIR/$FSW $TARGET_DIR/installation-fsw.local -variablefile $SUPPORT_DIR/installation-fsw.variables
+
+if [ $? -ne 0 ]; then
+	echo Error occurred during FSW installation
+	exit
+fi
+
+rm -f $TARGET_DIR/installation-fsw.local
+
 mv $JBOSS_HOME $JBOSS_HOME_FSW
 echo "  - copy in property for monitoring dtgov queries..."
 echo 
@@ -97,6 +119,11 @@ cp $SUPPORT_DIR/dtgov.properties $JBOSS_HOME_FSW/standalone/configuration
 echo Product installer running now...
 echo $SRC_DIR/$BPMS $SUPPORT_DIR/installation-bpms $SUPPORT_DIR/installation-bpms.variable
 java -jar $SRC_DIR/$BPMS $SUPPORT_DIR/installation-bpms -variablefile $SUPPORT_DIR/installation-bpms.variables
+
+if [ $? -ne 0 ]; then
+	echo Error occurred during BPMS installation
+	exit
+fi
 
 echo
 echo
