@@ -18,11 +18,11 @@ set PRJ_DIR=%PROJECT_HOME%projects
 set TARGET_DIR=%PROJECT_HOME%target
 set PRJ_DTGOVWF=%JBOSS_HOME_FSW%\dtgov-data
 set FSW_CONFIG=%SUPPORT_DIR%\installation-fsw
-set FSW_CONFIG_TMP=%SUPPORT_DIR%\installation-fsw.tmp
-set BPMS=jboss-bpms-installer-6.0.2.GA-redhat-5.jar
+set FSW_CONFIG_LOCAL=%SUPPORT_DIR%\installation-fsw.local
+set BPMS=jboss-bpms-installer-6.0.3.GA-redhat-1.jar
 set FSW=jboss-fsw-installer-6.0.0.GA-redhat-4.jar
-set DTGOVWF=dtgov-workflows-1.0.1.Final-redhat-8.jar
-set BPMS_VERSION=6.0.2
+set DTGOVWF=dtgov-workflows-1.0.2.Final-redhat-8.jar
+set BPMS_VERSION=6.0.3
 set FSW_VERSION=6.0.0
 
 REM wipe screen.
@@ -88,25 +88,30 @@ if exist %JBOSS_HOME% (
 	rmdir /s /q "%PROJECT_HOME%\target"
 )
 
-REM setup FSW installer script with full path (not needed for BPM installer).
-echo   - checking on refreshed fsw installation script.
-echo.
-call git checkout "%SUPPORT_DIR%\installation-fsw"
-
 echo   - modify FSW installer script with full path.
 echo.
-if exist %FSW_CONFIG_TMP% del %FSW_CONFIG_TMP%
+if exist %FSW_CONFIG_LOCAL% del %FSW_CONFIG_LOCAL%
 for /f "tokens=* delims= " %%a in (%FSW_CONFIG%) do (
 	set str=%%a
 	set str=!str:^>target=^>%TARGET_DIR%! 
-	echo !str! >> %FSW_CONFIG_TMP%
+	echo !str! >> %FSW_CONFIG_LOCAL%
 ) 
-move %FSW_CONFIG_TMP% %FSW_CONFIG%
-
 
 REM Run FSW installer.
-call java -jar %SRC_DIR%\%FSW% %SUPPORT_DIR%\installation-fsw -variablefile %SUPPORT_DIR%\installation-fsw.variables
-move %JBOSS_HOME% %JBOSS_HOME_FSW%
+call java -jar "%SRC_DIR%\%FSW%" "%SUPPORT_DIR%\installation-fsw.local" -variablefile "%SUPPORT_DIR%\installation-fsw.variables"
+
+if not "%ERRORLEVEL%" == "0" (
+	echo Error Occurred During %PRODUCT% Installation!
+	echo.
+	GOTO :EOF
+)
+
+del /F /Q %FSW_CONFIG_LOCAL%
+
+echo Pausing 10 seconds prior to starting next installation...
+timeout /t 10
+
+move "%JBOSS_HOME%" "%JBOSS_HOME_FSW%"
 
 echo   - copy in property for monitoring dtgov queries...
 echo.
@@ -117,6 +122,12 @@ REM Run BPM Suite installer.
 echo Product installer running now...
 echo.
 call java -jar %SRC_DIR%\%BPMS% %SUPPORT_DIR%\installation-bpms -variablefile %SUPPORT_DIR%\installation-bpms.variables
+
+if not "%ERRORLEVEL%" == "0" (
+	echo Error Occurred During %PRODUCT% Installation!
+	echo.
+	GOTO :EOF
+)
 
 echo   - enabling demo accounts role setup in application-roles.properties file...
 echo.
@@ -134,6 +145,8 @@ REM cp pom to dtgovwf, mvn package, cli upload + type
 echo   - copy modified pom to dtgov workflow project and build...
 echo.
 xcopy /Y /Q "%SUPPORT_DIR%\dtgovwf-pom.xml" "%PRJ_DTGOVWF%\pom.xml"
+xcopy /Y /Q "%SUPPORT_DIR%\overlord.demo.SimpleReleaseProcessBPMS.bpmn" "%PRJ_DTGOVWF%\src\main\resources\SRAMPPackage\"
+xcopy /Y /Q "%SUPPORT_DIR%\overlord.demo.SimpleReleaseProcess.bpmn" "%PRJ_DTGOVWF%\src\main\resources\SRAMPPackage\"
 
 call mvn -f "%PRJ_DTGOVWF%\pom.xml" package
 
@@ -169,7 +182,7 @@ echo =                                                                          
 echo =  Now open Business Central to build ^& deploy BPM process in your browser  =
 echo =  at:                                                                      =
 echo =                                                                           =
-echo =    http://localhost:8180/business-central     (u:erics/p:bpmsuite1!)       =
+echo =    http://localhost:8180/business-central     (u:erics/p:bpmsuite1!)      =
 echo =                                                                           =
 echo =  As a developer you have a modified project pom.xml                       =
 echo =  (found in projects/customer) which includes an s-ramp wagon and s-ramp   =
