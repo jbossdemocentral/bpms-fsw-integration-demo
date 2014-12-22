@@ -12,7 +12,7 @@ Quickstart
 
 2. Add products to installs directory.
 
-3. Run 'init.sh' or 'init.bat'.
+3. Run 'init.sh' or 'init.bat' file. 'init.bat' must be run with Administrative privileges.
 
 4. Copy this code snippet into your ~/.m2/settings.xml (authorization for s-ramp repository):
 
