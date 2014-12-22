@@ -154,7 +154,8 @@ Released versions
 
 See the tagged releases for the following versions of the product:
 
-- v1.1 - moved to JBoss Demo Central.
+- v1.2 - moved to JBoss Demo Central, updated windows init.bat support (issue #6), removed switchyard snapshot usage (issue #7),
+	modified DTGov deployment locations to /tmp/{product}/{artifact} (issue #4), fixed switchyard app build (issues #1).
 
 - v1.1 - JBoss BPM Suite 6.0.3 installer, JBoss Fuse Service Works 6.0.0 installer, customer demo installed and two governance
 	workflows deployed for each product.
