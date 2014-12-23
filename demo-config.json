@@ -1,0 +1,17 @@
+{
+  "name":"Fuse Service Works and Business Process Management System Integration Demo",
+  "summary":"Example demo project that shows various use cases around JBoss BPM integration with JBoss Fuse Service Works (FSW).",
+  "author":"Kenneth Peeples, Eric D. Schabell",
+  "level":"Intermediate",
+  "published":true,
+  "prerequisites":"Java VM 1.6 or 1.7, Maven",
+  "targetProduct":"JBoss FSW and JBoss BPMS",
+  "productVersion":"JBoss FSW 6.0 and JBoss BPMS 6.0.3",
+  "technologies": ["Business Processes","Switchyard","JBoss EAP","JBoss BRMS", "JBoss FSW"],
+  "links": [ 
+    {
+      "name":"Code",
+      "url":"https://github.com/jbossdemocentral/bpms-fsw-integration-demo"
+    }
+  ]
+}
