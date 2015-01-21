@@ -5,9 +5,9 @@ the various use cases when working with these two products.
 
 ![Use Case SY to BPM](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/blob/master/docs/demo-images/fsw-bpms-integration-2.png?raw=true)
 
-Quickstart
-----------
 
+Install to your machine
+-----------------------
 1. [Download and unzip.](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/archive/master.zip)
 
 2. Add products to installs directory.
@@ -32,7 +32,6 @@ Follow the instructions on the screen to start JBoss BPM Suite server and JBoss 
 
 Use Case 1: Design Time Governance  
 ----------------------------------
-
 The First Use Case is using Design Time Governance for Service Life Cycle Management. This will be split into two examples:  
 
    ```
@@ -146,12 +145,13 @@ An easy tool to help run this is a [single java jar project called FakeSMTP](htt
 
 Supporting Articles
 -------------------
+[5 Handy Tips From JBoss BPM Suite For Release 6.0.3](http://www.schabell.org/2014/10/5-handy-tips-from-jboss-bpmsuite-release-603.html)
+
 [New integration scenarios highlighted in JBoss BPM Suite & JBoss FSW integration demo](http://www.schabell.org/2014/08/new-integration-scenarios-bpmsuite-fsw-demo.html)
-How to Guide within the repository  
+
 
 Released versions
 -----------------
-
 See the tagged releases for the following versions of the product:
 
 - v1.2 - moved to JBoss Demo Central, updated windows init.bat support (issue #6), removed switchyard snapshot usage (issue #7),
@@ -164,8 +164,12 @@ See the tagged releases for the following versions of the product:
 
 
 [![Video Demo Run](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/blob/master/docs/demo-images/video-demo-run.png?raw=true)](http://vimeo.com/ericschabell/bpms-fsw-integration-demo-installation-governance)
+
 ![Process FSW](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/blob/master/docs/demo-images/dtgov-process-fsw.png?raw=true)
+
 ![Process BPMS](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/blob/master/docs/demo-images/dtgov-process-bpms.png?raw=true)
+
 ![Artifacts](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/blob/master/docs/demo-images/sramp-artifacts.png?raw=true)
+
 ![Email S-RAMP Service](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/blob/master/docs/demo-images/sramp-email-notify.png?raw=true)
 
