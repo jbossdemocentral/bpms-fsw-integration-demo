@@ -3,7 +3,7 @@ setlocal enabledelayedexpansion
 
 set PROJECT_HOME=%~dp0
 set DEMO=JBoss BPM Suite & JBoss FSW Integration Demo
-set AUTHORS=Kenny Peeples, Eric D. Schabell
+set AUTHORS=Andrew Block, Kenny Peeples, Eric D. Schabell
 set PROJECT=git@github.com:jbossdemocentral/bpms-fsw-integration-demo.git
 set PRODUCT=JBoss BPM Suite & JBoss FSW Integration Demo
 set JBOSS_HOME=%PROJECT_HOME%target\jboss-eap-6.1
@@ -42,7 +42,7 @@ echo ##     ####   #      #     #  ###        #     ####    #   #      ##
 echo ##                                                                ##   
 echo ##                                                                ##   
 echo ##  brought to you by,                                            ##   
-echo ##             %AUTHORS%                    ##
+echo ##             %AUTHORS%      ##
 echo ##                                                                ##   
 echo ##  %PROJECT% ##
 echo ##                                                                ##   
