@@ -38,19 +38,21 @@ The following steps can be used to configure and run the demo in a docker contai
 
 2. Add products to installs directory.
 
-3. Build demo image
+3. Copy contents of support/docker directory to the project root.
+
+4. Build demo image
 
 	```
 	docker build -t jbossdemocentral/bpms-fsw-integration-demo .
 	```
 
-4. Start demo container
+5. Start demo container
 
 	```
 	docker run --it -p 8080:8080 -p 9990:9990 -p 9999:9999 -p 8180:8180 -p 10090:10090 -p 10099:10099 jbossdemocentral/bpms-fsw-integration-demo
 	``` 
 	
-For Docker specific settings required to execute the demos, see the readme in the support/docker/Readme.md for details.
+For Docker specific settings required to execute the demos, see the readme in the support/docker/README.md for details.
 
 
 ![Use Case SY to BPM](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/blob/master/docs/demo-images/fsw-bpms-integration-2.png?raw=true)
