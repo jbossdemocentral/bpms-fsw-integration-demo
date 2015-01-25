@@ -5,6 +5,9 @@
 
     <route trace="true" >
         <from uri="switchyard://IntakeService"/>
+        <setHeader headerName="host">
+        	<simple>{{integration.host}}</simple>
+        </setHeader>
         <log message="IntakeServiceInterface - message received: ${body}"/>
         <to uri="bean:com.example.switchyard.switchyard_example.RestClientSimple4x?method=startProcess"/>
     </route>
