@@ -3,8 +3,7 @@
   <sca:composite name="switchyard-example" targetNamespace="urn:com.example.switchyard:switchyard-example:1.0">
     <sca:component name="CamelServiceRoute">
       <camel:implementation.camel>
-	<camel:xml path="route.xml"/>
-	<!-- <camel:java class="com.example.switchyard.switchyard_example.CamelServiceRoute"/> -->
+        <camel:xml path="route.xml"/>
       </camel:implementation.camel>
       <sca:service name="IntakeService">
         <sca:interface.wsdl interface="IntakeService.wsdl#wsdl.porttype(IntakeService)"/>
@@ -14,8 +13,9 @@
       <sca:interface.wsdl interface="IntakeService.wsdl#wsdl.porttype(IntakeService)"/>
       <soap:binding.soap name="soap1">
         <soap:wsdl>IntakeService.wsdl</soap:wsdl>
-	<soap:socketAddr>:18002</soap:socketAddr>
+        <soap:socketAddr>:18002</soap:socketAddr>
       </soap:binding.soap>
     </sca:service>
+    <sca:property value="localhost" name="integration.host"/>
   </sca:composite>
 </sy:switchyard>
