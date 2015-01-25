@@ -3,8 +3,6 @@ JBoss BPM Suite & JBoss Fuse Serivce Works Integration Demo
 This project fully automates the install of JBoss BPM Suite and on a separate EAP instance JBoss FSW products. It will demonstrate
 the various use cases when working with these two products.
 
-![Use Case SY to BPM](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/blob/master/docs/demo-images/fsw-bpms-integration-2.png?raw=true)
-
 There are two options available to you for using this demo; local and Docker.
 
 
@@ -55,6 +53,7 @@ The following steps can be used to configure and run the demo in a docker contai
 The following sections describe the Docker specific settings required to execute the demos within a docker container. Please utilize the instructions in the sections above for a full description on the execution of the demos and replacing the content specified in the sections below.
 
 
+![Use Case SY to BPM](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/blob/master/docs/demo-images/fsw-bpms-integration-2.png?raw=true)
 
 Use Case 1: Design Time Governance  
 ----------------------------------
