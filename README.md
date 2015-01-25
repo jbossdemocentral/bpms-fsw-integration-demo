@@ -5,9 +5,11 @@ the various use cases when working with these two products.
 
 ![Use Case SY to BPM](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/blob/master/docs/demo-images/fsw-bpms-integration-2.png?raw=true)
 
+There are two options available to you for using this demo; local and Docker.
 
-Install to your machine
------------------------
+
+Option 1 - Install to your machine
+----------------------------------
 1. [Download and unzip.](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/archive/master.zip)
 
 2. Add products to installs directory.
@@ -28,6 +30,30 @@ Install to your machine
    ```
 
 Follow the instructions on the screen to start JBoss BPM Suite server and JBoss Fuse Service Works server.
+
+
+Option 2 - Generate docker install
+----------------------------------
+The following steps can be used to configure and run the demo in a docker container
+
+1. [Download and unzip.](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/archive/master.zip). 
+
+2. Add products to installs directory.
+
+3. Build demo image
+
+	```
+	docker build -t jbossdemocentral/bpms-fsw-integration-demo .
+	```
+
+4. Start demo container
+
+	```
+	docker run --it -p 8080:8080 -p 9990:9990 -p 9999:9999 -p 8180:8180 -p 10090:10090 -p 10099:10099 jbossdemocentral/bpms-fsw-integration-demo
+	``` 
+	
+The following sections describe the Docker specific settings required to execute the demos within a docker container. Please utilize the instructions in the sections above for a full description on the execution of the demos and replacing the content specified in the sections below.
+
 
 
 Use Case 1: Design Time Governance  
@@ -136,27 +162,6 @@ The BPM process will call the Switchyard application through a SOAP based servic
 
    ```
 
-Docker
---------------
-The following steps can be used to configure and run the demo in a docker container
-
-1. [Download and unzip.](https://github.com/jbossdemocentral/bpms-fsw-integration-demo/archive/master.zip). 
-
-2. Add products to installs directory.
-
-3. Build demo image
-
-	```
-	docker build -t jbossdemocentral/bpms-fsw-integration-demo .
-	```
-4. Start demo container
-
-	```
-	docker run --it -p 8080:8080 -p 9990:9990 -p 9999:9999 -p 8180:8180 -p 10090:10090 -p 10099:10099 jbossdemocentral/bpms-fsw-integration-demo
-	``` 
-	
-The following sections describe the Docker specific settings required to execute the demos within a docker container. Please utilize the instructions in the sections above for a full description on the execution of the demos and replacing the content specified in the sections below.
-
 Use Case 1: Design Time Governance  
 ----------------------------------
 
@@ -177,6 +182,7 @@ When prompted, enter the s-ramp username and password (u:erics/p:jbossfsw1!)
 Promote the project to the different environments by claiming and completing tasks found within s-ramp:
 
         http://&lt;DOCKER_HOST&gt;:8080            u:erics/p:jbossfsw1!       
+
 
 Example 2 - Using DTGov with the FSW Switchyard application project  
 -------------------------------------------------------------------
@@ -209,7 +215,6 @@ Example 2 - Run the test through JBDS
 * Pass in a System Property when running the unit test
 	* Select test in Project explorer and selecting run -> Run Configurations. Select new JUnit test. Add appropriate parameters to run a single test TestIntakeServiceTest and add the VM Arguments `-Dintegration.host=192.168.59.103` on the Arguments tab
 
-
    Example 3 - Run the test through SOAPUI.
    
 Load the sample SOAPUI project and modify the destination 
@@ -233,6 +238,8 @@ Supporting Articles
 Released versions
 -----------------
 See the tagged releases for the following versions of the product:
+
+- v1.3 - Added optional generation of docker installation.
 
 - v1.2 - moved to JBoss Demo Central, updated windows init.bat support (issue #6), removed switchyard snapshot usage (issue #7),
 	modified DTGov deployment locations to /tmp/{product}/{artifact} (issue #4), fixed switchyard app build (issues #1).
