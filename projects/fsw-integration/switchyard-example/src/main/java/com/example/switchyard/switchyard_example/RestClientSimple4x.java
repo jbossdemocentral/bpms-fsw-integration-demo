@@ -1,10 +1,9 @@
 package com.example.switchyard.switchyard_example;
 
-import org.apache.http.HttpEntity;
+import org.apache.camel.Header;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.auth.AuthScope;
-import org.apache.http.auth.ContextAwareAuthScheme;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.AuthCache;
 import org.apache.http.client.methods.HttpPost;
@@ -20,7 +19,10 @@ import org.apache.http.util.EntityUtils;
  * 
  */
 public class RestClientSimple4x {
-    private static final String BASE_URL = "http://localhost:8180/business-central/rest/";
+	
+	
+	
+    private static final String BASE_URL = "http://%s:8180/business-central/rest/";
     //private static final String AUTH_URL = "http://localhost:8180/business-central/org.kie.workbench.KIEWebapp/j_security_check";
     private static final String DEPLOYMENT_ID = "customer:evaluation:1.0";
     private static final String PROCESS_DEF_ID = "customer.evaluation";
@@ -31,14 +33,14 @@ public class RestClientSimple4x {
     public static void main(String[] args) throws Exception {
     	System.out.println("Starting process instance: " + DEPLOYMENT_ID);
     	// start a process instance with no variables.
-        startProcess();
+        startProcess("localhost");
     	System.out.println("Completed process instance: " + DEPLOYMENT_ID);
     }
-
-   public static String startProcess() throws Exception {
+    
+   public static String startProcess(@Header("host") String host) throws Exception {
        String returnValue ="";
-       String newInstanceUrl = BASE_URL + "runtime/" + DEPLOYMENT_ID + "/process/" + PROCESS_DEF_ID + "/start";
-       HttpHost targetHost = new HttpHost("localhost",8180,"http");
+       String newInstanceUrl = String.format(BASE_URL,host) + "runtime/" + DEPLOYMENT_ID + "/process/" + PROCESS_DEF_ID + "/start";
+       HttpHost targetHost = new HttpHost(host,8180,"http");
        
        DefaultHttpClient httpclient = new DefaultHttpClient();
        httpclient.getCredentialsProvider().setCredentials(

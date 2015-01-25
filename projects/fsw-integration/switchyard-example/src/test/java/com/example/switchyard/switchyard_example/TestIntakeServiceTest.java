@@ -8,11 +8,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.switchyard.component.test.mixins.cdi.CDIMixIn;
 import org.switchyard.component.test.mixins.http.HTTPMixIn;
+import org.switchyard.test.BeforeDeploy;
 import org.switchyard.test.Invoker;
 import org.switchyard.test.ServiceOperation;
 import org.switchyard.test.SwitchYardRunner;
 import org.switchyard.test.SwitchYardTestCaseConfig;
 import org.switchyard.test.SwitchYardTestKit;
+import org.switchyard.test.mixins.PropertyMixIn;
 
 /**
  * @author kpeeples
@@ -20,7 +22,7 @@ import org.switchyard.test.SwitchYardTestKit;
  */
 @RunWith(SwitchYardRunner.class)
 @SwitchYardTestCaseConfig(config = SwitchYardTestCaseConfig.SWITCHYARD_XML, mixins = {
-		CDIMixIn.class, HTTPMixIn.class })
+		CDIMixIn.class, HTTPMixIn.class, PropertyMixIn.class })
 public class TestIntakeServiceTest {
 
 	private SwitchYardTestKit testKit;
@@ -28,6 +30,14 @@ public class TestIntakeServiceTest {
 	private HTTPMixIn httpMixIn;
 	@ServiceOperation("IntakeService")
 	private Invoker service;
+	private PropertyMixIn properties;
+
+	private String host = "localhost";
+
+	@BeforeDeploy
+	public void setProperty() {
+		properties.set("integration.host", host);
+	}
 
 	@Test
 	public void testNewOperation() throws Exception {
