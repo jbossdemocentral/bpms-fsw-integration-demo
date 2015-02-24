@@ -3,6 +3,7 @@
   "summary":"Example demo project that shows various use cases around JBoss BPM integration with JBoss Fuse Service Works (FSW).",
   "author":"Kenneth Peeples, Eric D. Schabell",
   "category":"multi",
+  "categories":["multi","fuse"],
   "level":"Intermediate",
   "published":true,
   "prerequisites":"Java VM 1.6 or 1.7, Maven",
