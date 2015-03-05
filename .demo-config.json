@@ -5,9 +5,9 @@
   "level":"Intermediate",
   "published":true,
   "prerequisites":"Java VM 1.6 or 1.7, Maven",
-  "targetProduct":"JBoss FSW and JBoss BPMS",
-  "productVersion":"JBoss FSW 6.0 and JBoss BPMS 6.0.3",
-  "technologies": ["Business Processes","Switchyard","JBoss EAP","JBoss BRMS", "JBoss FSW"],
+  "targetProduct":"JBoss FSW and JBoss BPM Suite",
+  "productVersion":"JBoss FSW 6.0 and JBoss BPM Suite 6.0.3",
+  "technologies": ["JBoss BPM Suite", "JBoss Fuse Service Works"],
   "links": [ 
     {
       "name":"Code",
